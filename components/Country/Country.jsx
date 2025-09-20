@@ -1,15 +1,18 @@
 import React from 'react';
-
+import './Country.css'
 const Country = ({country}) => {
 console.log(country)
+const handelVisited= ()=>{
 
+}
     return (
-        <div>
-            <img src={country.flags.flags.png} alt={country.flags.flags.alt}/>
+        <div className='country'>
+            <img className='hight' src={country.flags.flags.png} alt={country.flags.flags.alt}/>
             <h3>Name: {country.name.common}</h3>
             <p>Population: {country.population.population}</p>
             <p>Region: {country.region.region}</p>
-            
+            <p>Area: {country.area.area} {country.area.area > 300000 ? '(Big country)' : '(Small country)'}</p>
+            <button onClick={handelVisited}>Not Visited</button>
         </div>
     );
 };
