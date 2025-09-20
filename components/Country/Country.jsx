@@ -1,9 +1,12 @@
-import React from 'react';
-import './Country.css'
-const Country = ({country}) => {
-console.log(country)
-const handelVisited= ()=>{
+import React, { useState } from 'react';
+import './Country.css' 
 
+const Country = ({country}) => {
+    const [visited, setVisited]= useState(false)
+
+// console.log(country)
+const handelVisited= ()=>{
+setVisited(!visited)
 }
     return (
         <div className='country'>
@@ -12,7 +15,9 @@ const handelVisited= ()=>{
             <p>Population: {country.population.population}</p>
             <p>Region: {country.region.region}</p>
             <p>Area: {country.area.area} {country.area.area > 300000 ? '(Big country)' : '(Small country)'}</p>
-            <button onClick={handelVisited}>Not Visited</button>
+            <button onClick={handelVisited}>
+                {visited ? 'Visited' : 'Not Visited'}
+            </button>
         </div>
     );
 };
